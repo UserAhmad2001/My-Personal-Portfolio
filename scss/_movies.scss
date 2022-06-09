@@ -20,9 +20,10 @@
 
 
     nav{
-        display: block;
         border-right: .1rem solid $grey-bg;
         margin-left: -2rem;
+        min-height: 100%;
+
 
 
         ul{

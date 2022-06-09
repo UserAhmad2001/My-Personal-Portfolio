@@ -11145,9 +11145,9 @@ results:hover {
   position: relative;
 }
 .body-movies nav {
-  display: block;
   border-right: 0.1rem solid rgba(255, 255, 255, 0.397);
   margin-left: -2rem;
+  min-height: 100%;
 }
 .body-movies nav ul li {
   font-size: 1.8rem;
