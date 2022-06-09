@@ -1,0 +1,63 @@
+.body-movies{
+    $dark-bg:black ;
+    $light-bg:white ;
+    $grey-bg:rgba(255, 255, 255, 0.397) ;
+    $grey-bg-light:rgba(0, 0, 0, 0.248) ;
+
+    background-color: $dark-bg;
+    color: $light-bg;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-weight: 900;
+    box-sizing: border-box;
+    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: relative;
+
+
+
+
+
+    nav{
+        display: block;
+        border-right: .1rem solid $grey-bg;
+        margin-left: -2rem;
+
+
+        ul{
+            
+            li{
+                font-size: 1.8rem;
+                padding: 1rem 1rem 1rem 0;
+                cursor: pointer;
+                transition:background .3s ease;
+
+                span{
+                    display: none;
+                }
+
+                i{
+                    padding: 0 1rem;
+                }
+            }
+        }
+    }
+
+
+    main{
+        padding: 0 1rem;
+    }
+
+
+
+    @media (hover){
+        nav ul li:hover,:focus{
+            background: $grey-bg;
+        }
+
+        nav:hover ul li span{
+            display: initial;
+        }
+    }
+}

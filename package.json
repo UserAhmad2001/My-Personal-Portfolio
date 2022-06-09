@@ -1,0 +1,19 @@
+{
+  "name": "p.-portfolio-2",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.js",
+  "scripts": {
+    "test": "sass scss:assets/style.css --watch",
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.51.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

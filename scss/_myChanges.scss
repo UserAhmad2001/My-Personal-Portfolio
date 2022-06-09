@@ -1,0 +1,19 @@
+
+
+.py-4{
+    padding: 10rem 0 !important;
+}
+
+
+project-img{
+    cursor: pointer;
+}
+
+results{
+    cursor: pointer;
+
+    &:hover{
+        filter: saturate(3rem);
+    }
+}
+

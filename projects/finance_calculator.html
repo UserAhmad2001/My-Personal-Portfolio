@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- BOOTSTRAP STYLESHEET -->
+    <link rel="stylesheet" href="../assets/style.css/style.css">
+
+</head>
+<body>
+    <h1 class="h1 text-center text-primary" >Simple Finance Calculator</h1>
+    <h5 class="h5 text-center text-secondary" >This app determines your estimated monthly payment.</h2>
+        
+
+    <div id="form" class="container m-5">
+
+        <div class="row ">
+            <div class="col-6 m-auto text-center">
+                <input id="loan" type="number" class="form-control p-3" placeholder="Loan">
+            </div>
+            </div>
+
+        <div class="row my-4 ">
+            <div class="col-6 m-auto text-center">
+                <input id="interest-rate" type="number" class="form-control p-3"  placeholder="Interest-Rate">
+            </div>
+            </div>
+
+            <div class= "row my-4">
+            <div class="col-6 m-auto text-center">
+                <input id="months" type="number" class="form-control p-3"  placeholder="Months to pay">
+            </div>
+            </div>
+
+            <div class= "row my-4 ">
+                <div class="col-3 m-auto">
+                    <button id="submit-button" class="form-control btn-primary py-2" >SUBMIT</button>
+                </div>
+                </div>
+
+            </div>
+
+
+
+
+    <div class="container-fluid ">
+        
+<div class="row mt-5">
+    <div class="col-4">
+        <div class="h3 text-white text-center p-5 rounded d-none results" style="background-color: rgb(104, 255, 104); ">Loan With Interest <br></div>
+</div>
+
+    <div class="col-4">
+        <div class="h3 text-white text-center p-5 rounded d-none results" style="background-color: rgb(79, 244, 222); ">Monthly Deposit <br></div>
+</div>
+
+<div class="col-4">
+    <div class="h3 text-white text-center p-5 rounded d-none results" style="background-color: rgb(238, 144, 144); ">Interest In Dollar <br></div>
+</div>
+
+</div>
+
+    </div>
+
+
+    <!-- <script src="index.js"></script> -->
+    <script src="finance_calculator.js"></script>
+</body>
+</html>
