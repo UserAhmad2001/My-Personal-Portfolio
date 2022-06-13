@@ -11134,56 +11134,207 @@ results:hover {
 }
 
 .body-movies {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-weight: 900;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-.body-movies nav {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  z-index: 1;
+.body-movies header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  background: rgb(245, 245, 245);
+  box-shadow: 1px 0 30px rgba(0, 0, 0, 0.3);
+  padding-left: 1rem;
+  z-index: -4;
 }
-.body-movies nav ul {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 0.5rem;
-  position: relative;
+.body-movies header .search {
+  border-radius: 5px;
+  margin-left: auto;
+  border: none;
+  padding: 0.4rem 1rem;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
 }
-.body-movies nav ul li {
-  font-size: 1.8rem;
-  padding: 1rem 1rem 1rem 0;
+.body-movies header .search:focus, .body-movies header .search :active {
+  padding: 0.4rem 4rem;
+  text-align: center;
+}
+.body-movies header i {
+  display: none;
+  border-radius: 3rem;
+  margin-right: auto;
+  font-size: 2rem;
+  color: black;
+  padding: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  z-index: 5;
 }
-.body-movies nav ul li span {
-  display: block;
-  text-align: center;
+.body-movies header i:hover {
+  background-color: rgb(235, 235, 235);
 }
-.body-movies nav ul li i {
+.body-movies header .sec-nav {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40vh, 100vh));
+  background-color: transparent;
+  backdrop-filter: blur(1rem);
+  z-index: 2;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  transform: scaleX(0) perspective(30rem);
+}
+.body-movies header .sec-nav span {
+  padding: 3rem 5rem;
+  margin: auto;
   text-align: center;
-  display: block;
-  padding: 0 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.body-movies header .sec-nav span:hover {
+  background-color: lightblue;
+}
+.body-movies header nav {
+  margin-right: auto;
+  padding-right: 2rem;
+}
+.body-movies header nav div {
+  padding: 1rem 1rem;
+  display: inline-block;
+  color: black;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: background 0.4s ease;
+}
+.body-movies header nav div:hover {
+  background-color: lightblue;
+  color: white;
 }
 .body-movies main {
-  padding: 0 1rem;
   height: 100vh;
   position: relative;
-  display: none;
+  z-index: 0;
 }
 .body-movies main .loading {
   position: absolute;
+  display: none;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-size: 4rem;
 }
-@media (hover) {
-  .body-movies nav ul li:hover, .body-movies :focus {
-    background: rgba(255, 255, 255, 0.397);
+.body-movies main .movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40vh, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.body-movies main .movies-container .movie {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.5s ease, transform 0.3s linear, box-shadow 0.3s linear;
+  box-shadow: 1px 2px 4px 0px rgb(100, 100, 100);
+  overflow: hidden;
+}
+.body-movies main .movies-container .movie:hover, .body-movies main .movies-container .movie :focus {
+  transform: scale(1.02);
+  z-index: 9;
+  box-shadow: 1px 2px 8px 0px rgb(187, 187, 187);
+}
+.body-movies main .movies-container .movie:hover .movie-text-container h1::before, .body-movies main .movies-container .movie:hover .movie-text-container .h1::before, .body-movies main .movies-container .movie :focus .movie-text-container h1::before, .body-movies main .movies-container .movie :focus .movie-text-container .h1::before {
+  transform: scaleX(20);
+}
+.body-movies main .movies-container .movie:hover .movie-text-container, .body-movies main .movies-container .movie :focus .movie-text-container {
+  transform: translateY(0);
+}
+.body-movies main .movies-container .movie img {
+  width: 100%;
+  border-radius: 9px 9px 0 0;
+}
+.body-movies main .movies-container .movie .visible-movie-title {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  text-align: center;
+}
+.body-movies main .movies-container .movie .movie-text-container {
+  border-radius: 9px 9px 0 0;
+  position: absolute;
+  padding: 1.2rem 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: translateY(100%);
+  transition: transform 0.3s linear;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1rem);
+  color: white;
+  text-align: center;
+  font-size: 200%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.body-movies main .movies-container .movie .movie-text-container h1, .body-movies main .movies-container .movie .movie-text-container .h1 {
+  padding: 0 0.2rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: left;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.body-movies main .movies-container .movie .movie-text-container h1::before, .body-movies main .movies-container .movie .movie-text-container .h1::before {
+  content: " ";
+  height: 3%;
+  width: 5%;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: linear-gradient(45deg, rgb(0, 191, 255), rgb(0, 238, 255));
+  transition: transform 0.3s 0.3s linear;
+  transform-origin: left;
+}
+.body-movies main .movies-container .movie .movie-text-container h5, .body-movies main .movies-container .movie .movie-text-container .h5 {
+  text-align: left;
+  height: 28%;
+}
+.body-movies main .movies-container .movie .movie-text-container .rating-trailer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.body-movies main .movies-container .movie .movie-text-container .rating-trailer span {
+  display: block;
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+.body-movies main .movies-container .movie .movie-text-container .rating-trailer button {
+  background-color: rgb(0, 191, 255);
+  padding: 0.3rem 1rem;
+  border-color: rgb(0, 191, 255);
+  color: rgb(255, 255, 255);
+  border-width: 0.15rem 0.15rem 0.35rem 0.15rem;
+  border-radius: 1rem;
+}
+.body-movies main .movies-container .movie .movie-text-container .rating-trailer button:active, .body-movies main .movies-container .movie .movie-text-container .rating-trailer button :focus {
+  border-width: 0.15rem;
+  border-color: rgb(0, 191, 255);
+}
+@media only screen and (max-width: 860px) {
+  .body-movies header nav {
+    display: none;
+  }
+  .body-movies header i {
+    display: inline-block;
+  }
+  .body-movies header .search {
+    margin: 1rem;
   }
 }
 

@@ -17,29 +17,62 @@
 <body class="body-movies">
 
     
-        
-    <!-- THIS IS MY NAVBAR -->
-    <nav>
-        <ul>
-            <li> <i class="fa-solid fa-house"></i> <span>HOME</span></li>
-            <li> <i class="fa-solid fa-arrow-trend-up"></i> <span>TRENDING</span></li>
-            <li> <i class="fa-solid fa-fire"></i> <span>POPULAR</span></li>
-            <li> <i class="fa-brands fa-font-awesome"></i> <span>CATEGORIES</span></li>
-            <li> <i class="fa-solid fa-circle-info"></i> <span>ABOUT</span></li>
-        </ul>
-    </nav>
 
-
-    <!-- THIS IS MY MAIN CONTENT -->
-    <main>
-        <div class="loading">Loading....</div>
-        <input type="text" class="search">
-        <div class="movie-thumbnails">
-            </div>
-        </div>
-    </main>
-
-
+        <!-- THIS IS MY HEADER -->
+        <header>
+            <input type="text" class="search" placeholder="search">
     
+            <nav>
+                <div>HOME</div>
+                <div>TRENDING</div>
+                <div>POPULAR</div>
+                <div>CATEGORIES</div>
+                <div>ABOUT</div>
+            </nav>
+    
+            <i class="fa-solid fa-bars" id="menu"></i>
+
+            <!-- THIS IS THE HIDDEN NAVBAR -->
+            <div class="sec-nav">
+                <span>HOME</span>
+                <span>TREANDING</span>
+                <span>POPULAR</span>
+                <span>CATEGORIES</span>
+                <span>ABOUT</span>
+            </div>
+    
+        </header>
+          
+    
+    
+        <!-- THIS IS MY MAIN CONTENT -->
+        <main>
+            <div class="loading">Loading....</div>
+            <div class="movies-container">
+
+                <div class="movie">
+                    <img class="movie-img" src="../images/client-1.jpg" alt="movie image">
+                    <p class="visible-movie-title">Movie Visible Title</p>
+                    <div class="movie-text-container">
+                        <h1 class="movie-name">Lorem ipsum dolor sit amet consectetur</h1>
+                        <h5>This is a short description of the movie plot accompannied by 
+                            some minor details</h5>
+                        <div class="rating-trailer">
+                            <span id="rating">Rating: 9/10</span>
+                        <button id="watch-trailer-btn">WATCH TRAILER</button>
+                    </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </main>
+
+
+
+
+
+    <script src="./movies.js"></script>
 </body>
 </html>
