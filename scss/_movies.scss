@@ -12,6 +12,12 @@
     padding: 0;
     margin: 0;
 
+
+    .trailer-layer{
+        width: 100%;
+        height: 100%;
+        margin: 2rem;
+    }
     
 
     // THIS THE HEADER SECTION
@@ -91,6 +97,7 @@
             div{
                 padding: 1rem 1rem;
                 display: inline-block;
+                position: relative;
                 color: black;
                 cursor: pointer;
                 font-size: 1.3rem;
@@ -99,6 +106,37 @@
                 &:hover{
                     background-color: lightblue;
                     color: white;
+                    .dropdown{
+                        display: grid;
+                    }
+                }
+
+                .dropdown{
+                    position: absolute;
+                    display: none;
+                    z-index: 6;
+                    background: lightblue;
+                    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
+                    left: 0;
+                    top: 95%;
+                    width: 100vh;
+                    border-radius: 0 .5rem .5rem .5rem ;
+                    overflow: hidden;
+
+                    &:hover{
+                        display: grid;
+                    }
+
+                    .dropdown-item{
+                        color: white;
+                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+                        padding: 2rem;
+                        transition: background .3s ease;
+
+                        &:hover{
+                            background: rgba(240, 255, 255, 0.238);
+                        }
+                    }
                 }
             }
         }
@@ -173,7 +211,7 @@
                 .movie-text-container{
                     border-radius: 9px 9px 0 0;
                     position: absolute;
-                    padding: 1.2rem 1rem;
+                    padding: 1.2rem 1rem 0 1rem;
                     width: 100%;
                     height: 100%;
                     overflow: auto;
@@ -214,10 +252,7 @@
                         height: 28%;
                     }
     
-                    .rating-trailer{
-                        display: flex;
-                        flex-direction: column-reverse;
-                        align-items: center;
+
     
                         span{
                             display: block;
@@ -225,21 +260,7 @@
                             font-size: 1.8rem;
                             text-transform: uppercase;
                         }
-                        button{
-                            background-color: $blue;
-                            padding: .3rem 1rem;
-                            border-color: $blue;
-                            color: rgb(255, 255, 255);
-                            border-width:.15rem .15rem .35rem .15rem ;
-                            border-radius: 1rem;
-    
-                            &:active,:focus{
-                                border-width: .15rem;
-                                border-color: $blue;
-                            }
-                            
-                        }
-                }
+                
                 
                 }
             }
