@@ -17,7 +17,9 @@
 <body class="body-movies">
 
 
-    <div class="trailer-player"></div>
+    <div id="video">
+        <div id="player"></div>
+    </div>
     
 
         <!-- THIS IS MY HEADER -->
@@ -28,7 +30,7 @@
                 <div class="nav-home">HOME</div>
                 <div class="nav-trending">TRENDING</div>
                 <div class="nav-popular">POPULAR</div>
-                <div class="nav-categories">CATEGORIES<div class="dropdown"></div></div>
+                <div class="nav-categories">CATEGORIES<div class="dropdown genres"></div></div>
                 
                 <div class="nav-about">ABOUT</div>
             </nav>
@@ -50,13 +52,11 @@
     
         <!-- THIS IS MY MAIN CONTENT -->
         <main>
-            <div class="loading">Loading....</div>
+            <div class="loading-message">
+                Loading...
+            </div>
+            
             <div class="movies-container">
-
-
-
-
-
             </div>
 
         </main>
@@ -65,6 +65,8 @@
 
 
 
-    <script src="./movies.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./movies.js" type="module"></script>
+
 </body>
 </html>

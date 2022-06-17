@@ -11251,13 +11251,16 @@ results:hover {
   position: relative;
   z-index: 0;
 }
-.body-movies main .loading {
+.body-movies main .loading-message {
   position: absolute;
   display: none;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   font-size: 4rem;
+}
+.body-movies main .loading-message .reload-btn {
+  display: none;
 }
 .body-movies main .movies-container {
   display: grid;
@@ -11295,6 +11298,14 @@ results:hover {
   font-size: 1.5rem;
   padding: 0 0.5rem;
   text-align: center;
+}
+.body-movies main .movies-container .movie .rating {
+  position: absolute;
+  color: white;
+  background: lightblue;
+  left: 2%;
+  top: 2%;
+  font-size: 1.5rem;
 }
 .body-movies main .movies-container .movie .movie-text-container {
   border-radius: 9px 9px 0 0;
@@ -11334,13 +11345,6 @@ results:hover {
 }
 .body-movies main .movies-container .movie .movie-text-container h5, .body-movies main .movies-container .movie .movie-text-container .h5 {
   text-align: left;
-  height: 28%;
-}
-.body-movies main .movies-container .movie .movie-text-container span {
-  display: block;
-  text-align: center;
-  font-size: 1.8rem;
-  text-transform: uppercase;
 }
 @media only screen and (max-width: 860px) {
   .body-movies header nav {
