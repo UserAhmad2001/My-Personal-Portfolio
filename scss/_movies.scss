@@ -1,16 +1,18 @@
 .body-movies{
-$dark-bg:black ;
-$light-bg:white ;
-$grey-bg:rgb(245, 245, 245) ;
+$black-low:rgb(62, 62, 62);
+$black-bg:rgb(43, 43, 43);
 $blue : rgb(0, 191, 255) ;
+$nav-bg : rgb(0, 191, 255) ;
 
 
 font-family: 'Arial Narrow', Arial, sans-serif ;
 font-weight: 700;
 box-sizing: border-box;
+background-color: $black-bg;
 
 padding: 0;
 margin: 0;
+color: white;
 
 
 .trailer-layer{
@@ -25,9 +27,9 @@ header{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    background: $grey-bg;
+    background: $black-low;
     box-shadow: 1px 0 30px rgba(0, 0, 0, 0.3);
-    padding-left: 1rem;
+    padding-right: 1rem;
     z-index: -4;
 
     .search{
@@ -47,7 +49,7 @@ header{
         border-radius: 3rem;
         margin-right: auto;
         font-size: 2rem;
-        color: black;
+        color: white;
         padding: 1rem;
         cursor: pointer;
         z-index: 5;
@@ -81,7 +83,7 @@ header{
             cursor: pointer;
 
             &:hover{
-                background-color: lightblue;
+                background-color: $nav-bg;
             }
         }
 
@@ -95,19 +97,22 @@ header{
 
 
         div{
-            padding: 1rem 1rem;
+            padding: 1.5rem 2rem;
             display: inline-block;
             position: relative;
-            color: black;
             cursor: pointer;
             font-size: 1.3rem;
             transition: background .4s ease;
 
             &:hover{
-                background-color: lightblue;
+                background-color: $nav-bg;
                 color: white;
                 .dropdown{
                     display: grid;
+                }
+                .about-me{
+                    display: initial;
+                    z-index: 10;
                 }
             }
 
@@ -115,7 +120,7 @@ header{
                 position: absolute;
                 display: none;
                 z-index: 6;
-                background: lightblue;
+                background: $nav-bg;
                 grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
                 left: 0;
                 top: 95%;
@@ -138,6 +143,26 @@ header{
                     }
                 }
             }
+
+            .about-me{
+                display: none;
+                position: absolute;
+                width: max-content;
+                top: 100%;
+                left: 0%;
+                background-color: $nav-bg;
+                border-radius: 0 .5rem .5rem .5rem ;
+                &:hover{
+                    display: initial;
+                }
+                p{
+                    cursor: text;
+                    font-size: xx-large;
+                    &:nth-child(2),:nth-child(3){
+                        cursor: pointer;
+                    }
+                }
+            }
         }
     }
     
@@ -153,15 +178,33 @@ main{
     z-index: 0;
 
     .loading-message{
+        position: fixed;
+        display: none;
+        grid-template-columns: repeat(2,1fr);
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%)
+         rotateZ(45deg) ;
+        z-index: 101;
+
+        span{
+            background-color: aqua;
+            width: 50px;
+            height: 50px;
+            display: block;
+            opacity: 0;
+            animation: loading-anim 1s infinite alternate;
+        }
+    }
+
+    .error-message{
         position: absolute;
         display: none;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
         font-size: 4rem;
-        .reload-btn{
-            display: none;
-        }
+        z-index: 100;
     }
 
     .movies-container{
@@ -183,6 +226,7 @@ main{
 
             box-shadow: 1px 2px 4px 0px rgb(100, 100, 100);
             overflow: hidden;
+            background-color: $black-low;
 
 
             &:hover,:focus{
@@ -213,7 +257,7 @@ main{
             .rating{
                 position: absolute;
                 color: white;
-                background: lightblue;
+                background: $nav-bg;
                 left: 2%;
                 top: 2%;
                 font-size: 1.5rem;
@@ -272,7 +316,7 @@ main{
 
 
 
-@media only screen and (max-width:860px){
+@media only screen and (max-width:975px){
 header{
     nav{
         display: none;
@@ -286,4 +330,14 @@ header{
 }
 }
 
+}
+
+
+@keyframes loading-anim {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

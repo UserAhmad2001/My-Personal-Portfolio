@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Trailers App</title>
 
     <!-- MY STYLESHEET -->
     <link rel="stylesheet" href="../assets/style.css/style.css">
@@ -17,8 +17,7 @@
 <body class="body-movies">
 
 
-    <div id="video">
-        <div id="player"></div>
+    <div id="player">
     </div>
     
 
@@ -31,8 +30,13 @@
                 <div class="nav-trending">TRENDING</div>
                 <div class="nav-popular">POPULAR</div>
                 <div class="nav-categories">CATEGORIES<div class="dropdown genres"></div></div>
-                
-                <div class="nav-about">ABOUT</div>
+                <div class="nav-about">ABOUT
+                    <div class="about-me">
+                        <p>Website developed by: <span>Ahmad Mana</span></p>
+                        <p>Email: Ahmadmanee2001@gmail.com</p>
+                        <p>Phone number: +964 780 396 3201</p>
+                    </div>
+                </div>
             </nav>
     
             <i class="fa-solid fa-bars" id="menu"></i>
@@ -53,14 +57,19 @@
         <!-- THIS IS MY MAIN CONTENT -->
         <main>
             <div class="loading-message">
-                Loading...
+                <span style="animation-delay: 0s;"></span>
+                <span style="animation-delay: .3s;"></span>
+                <span style="animation-delay: .1s;"></span>
+                <span style="animation-delay: .2s;"></span>
+            </div>
+            <div class="error-message">
+                <button>RETURN HOME</button>
             </div>
             
             <div class="movies-container">
             </div>
 
         </main>
-
 
 
 

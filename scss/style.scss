@@ -12,10 +12,13 @@
 
 
 
-
+// THESE ARE FOR OVERRIDING BOOTSTRAP'S CUSTOM VARIABLES
 @import "_custom-variables.scss";
 
 
 
 // MOVIES STYLESHEET
 @import './movies' ;
+
+// WEATHER APP STYLESHEET
+@import './weather' ;

@@ -1,7 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded',(e)=>{
-    
+
     //Variables and Elements
     var open_menu = false ;
     var menu = document.getElementById('menu');
@@ -10,14 +10,18 @@ document.addEventListener('DOMContentLoaded',(e)=>{
     var nav_home = true
     var year = new Date().getFullYear()
     var loading_el = document.querySelector('.loading-message')
+    var error_el = document.querySelector('.error-message')
 
-    
+
+
     // functions
 
         const fetchMovies = (limit,sort,type,query,year,genres)=>{
+            error_el.style.display = "none"
             var page = (movies_container.children.length/24) + 1
-            loading_el.style.display = "initial"
-        
+            loading_el.style.display = "grid"
+
+
             const options = {
                 method: 'GET',
                 url: 'https://movies-app1.p.rapidapi.com/api/movies',
@@ -35,18 +39,18 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                 'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
                 }
             };
-            
+
             axios.request(options).then(function (response) {
                     if(response.messageStatus = "OK" && response.data.results.length != 0){
                         loading_el.style.display = "none"
                         parseFetchResults(response.data.results)
-                    }else{
-                        fetchMovies('','title','','','','')
                     }
                     console.log(response.data);
                 }).catch(function (error) {
                     console.log(error);
-                    fetchMovies('','title','','','','')
+                    loading_el.style.display = "none"
+                    error_el.style.display = "initial"
+
                 });
             }
         const fetchGenres = ()=>{
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                 'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
                 }
             };
-            
+
             axios.request(options).then(function (response) {
                 var results = response.data.results
                 if(response.messageStatus = "OK" && results.length != 0){
@@ -69,32 +73,42 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                 }
                 }).catch(function (error) {
                     console.log(error);
-                    fetchGenres()
                 });
             }
-        
+
         var parseFetchResults = (results)=>{
-                
+
             results.forEach((result)=>{
-                var movie_img = result.image
-                var movie_title = result.title
-                var movie_description = result.description
-                var rating = result.rating
-                
-                movies_container.innerHTML += '<div class="movie"><img class="movie-img" src="'+ movie_img +
-                '" alt="movie image"><p class="rating">'+ rating +
-                '</p><p class="visible-movie-title">'+ movie_title +
-                '</p><div class="movie-text-container"><h1 class="movie-name">'+ movie_title +
-                '</h1><h5>'+ movie_description +'</h5></div></div>'
+            var movie_img = result.image
+            var movie_title = result.title
+            var movie_description = result.description
+            var rating = result.rating
+            var trailerLink = "#"
+            var movieId = results.videoId
+
+            movies_container.innerHTML += '<div class="movie" movieId="'
+            + movieId +'" refr="'+trailerLink+'"><img class="movie-img" src="'+ movie_img +
+            '" alt="movie image"><p class="rating">'+ rating +
+            '</p><p class="visible-movie-title">'+ movie_title +
+            '</p><div class="movie-text-container"><h1 class="movie-name">'+ movie_title +
+            '</h1><h5>'+ movie_description +'</h5></div></div>'
+
+
+            // movies_container.innerHTML += '<div class="movie" href="'
+            // +trailerLink+'"><img class="movie-img" src="'+ movie_img +
+            // '" alt="movie image"><p class="rating">'+ rating +
+            // '</p><p class="visible-movie-title">'+ movie_title +
+            // '</p><div class="movie-text-container"><h1 class="movie-name">'+ movie_title +
+            // '</h1><h5>'+ movie_description +'</h5></div></div>'
             })
-        
-        
+
+
         }
         var scrollEventListener = (e)=>{
             var scrollable = Math.round(document.documentElement.scrollHeight - window.innerHeight )
             var scrollY = Math.ceil(window.scrollY)
             // console.log(scrollable,scrollY);
-    
+
             if(scrollable === scrollY){
                 if(nav_home){
                     fetchMovies('','title','movies','','','');
@@ -105,10 +119,10 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                     fetchMovies('','rating','','',year,'');
                 }
             }
-            
+
         }
-        
-   
+
+
 
 
     // event liteners
@@ -129,8 +143,8 @@ document.addEventListener('DOMContentLoaded',(e)=>{
         }
 
     })
-    
-    document.addEventListener('scroll',scrollEventListener)    
+
+    document.addEventListener('scroll',scrollEventListener)
 
     document.querySelector('.nav-home')
     .addEventListener('click',(e)=>{
@@ -175,9 +189,13 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             year = new Date().getFullYear()
         }
     })
-    
-    
-    
+    document.querySelector('.error-message')
+    .addEventListener('click',(e)=>{
+        fetchMovies('','title','','','','');
+    })
+
+
+
 
 
 
@@ -187,15 +205,12 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
 
     // STARTUP FUNCTIONS
-    fetchMovies('','title','movies','','','');
-    fetchGenres()
-    // console.log(document.documentElement.scrollHeight , window.innerHeight);
-    // console.log("2"+window.scrollY);
-    // console.log("3"+window.scrollHeight);
-    // console.log("4"+document.documentElement.clientHeight);
+    // fetchMovies('','title','movies','','','');
+    // fetchGenres()
 
-    
-    
+
+
+
 
 
 
