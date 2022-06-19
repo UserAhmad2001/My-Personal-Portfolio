@@ -5,9 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Project</title>
-    <script src="./weather.js" type="text/javascript" defer></script>
-</head>
-<body>
     
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../assets/style.css/style.css">
+
+     <!-- my script -->
+    <script src="./weather.js" type="text/javascript" defer></script>
+    <!-- font awesome script -->
+    <!-- <script src="https://kit.fontawesome.com/00ad1a85f5.js" crossorigin="anonymous" defer></script> -->
+</head>
+<body class="body-weather">
+
+    <div class="time-weather">
+        <div class="time">
+            <span class="day">Saturday</span><br>
+            <span class="hour"><span class="date">21/1/2021</span>8:00 PM</span>
+        </div>
+        <div class="weather-summary">
+            <i class=""></i>
+            <br>Lorem ipsum dolor sit amet consectetur 
+            adipisicing.</div>
+    </div>
+
+    <input type="range" class="weather-slider" min="1" max="168" step="1">
+
+    <div class="extra-info">
+        <div class="temp">
+            <i class="fa-solid fa-temperature-half"></i>
+             <span>TEMPERATURE:<br><h2 id="temp-value">44C</h2></span>
+            </div>
+
+        <div class="wind-speed">
+            <i class="fa-solid fa-wind"></i>
+            <span>WIND-SPEED:<br><h2 id="wind-speed-value">55Km/s</h2></span>
+        </div>
+
+        <div class="humidity">
+            <i class="fa-solid fa-droplet-degree"></i>
+            <span>HUMIDITY:<br><h2 id="humidity-value">20%</h2></span>
+        </div>
+
+        <div class="pressure">
+            <i class="fa-solid fa-water-arrow-down"></i>
+            <span>PRESSURE:<br><h2 id="pressure-value">40N</h2></span>
+        </div>
+
+    </div>
+       
 </body>
 </html>
