@@ -2,18 +2,19 @@
   "name": "p.-portfolio-2",
   "version": "1.0.0",
   "description": "",
-  "source": "index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "sass scss:assets/style.css --watch",
-    "dev": "parcel",
-    "build": "parcel build"
+    "test": "sass scss:assets/style.css --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UserAhmad2001/MyPersonalPortfolio.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "sass": "^1.51.0"
+  "bugs": {
+    "url": "https://github.com/UserAhmad2001/MyPersonalPortfolio/issues"
   },
-  "dependencies": {
-    "bootstrap": "^5.1.3"
-  }
+  "homepage": "https://github.com/UserAhmad2001/MyPersonalPortfolio#readme"
 }

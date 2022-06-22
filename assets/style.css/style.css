@@ -11118,12 +11118,17 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.h1 {
+  font-size: 4rem !important;
+}
+
 .py-4 {
-  padding: 10rem 0 !important;
+  padding: 8rem 0 !important;
 }
 
 project-img {
   cursor: pointer;
+  width: 100%;
 }
 
 results {
@@ -11412,7 +11417,8 @@ results:hover {
   flex-direction: column;
   align-items: flex-start;
 }
-.body-weather::before, .body-weather ::after {
+.body-weather::before,
+.body-weather ::after {
   box-sizing: border-box;
 }
 .body-weather .time-weather {
@@ -11427,10 +11433,11 @@ results:hover {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.338);
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
   flex-basis: 100%;
   margin: 0.5rem;
+  background-color: white;
   cursor: pointer;
 }
 .body-weather .time-weather .time .day {
@@ -11442,38 +11449,118 @@ results:hover {
 .body-weather .time-weather .time .hour {
   font-weight: 100;
 }
-.body-weather .time-weather .time .hour .date {
-  padding: 1rem;
-}
 .body-weather .time-weather .weather-summary {
   text-align: center;
   flex-basis: 100%;
   padding: 1rem;
-  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.338);
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0.5rem;
   margin: 0.5rem;
+  background-color: white;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.body-weather .weather-slider {
+.body-weather .time-weather .weather-summary i {
+  font-size: 4rem;
+}
+.body-weather .time-weather .weather-summary span {
+  font-size: xx-large;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+.body-weather .slider-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.body-weather .slider-container span {
+  padding-right: 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.body-weather .slider-container .weather-slider {
   width: 100%;
   margin: 1rem 0;
+}
+.body-weather .location-setter {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.body-weather .location-setter .longtitude-field {
+  flex-basis: 100%;
+  border: none;
+  background: rgb(231, 231, 231);
+  margin: 0 1rem;
+  height: 4rem;
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.body-weather .location-setter .latitude-field {
+  flex-basis: 100%;
+  border: none;
+  background: rgb(231, 231, 231);
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.body-weather .location-setter button {
+  flex-basis: 70%;
+  border: none;
+  border-radius: 0.3rem;
+  text-align: center;
+  box-sizing: border-box;
+  background: rgb(0, 162, 255);
+  color: white;
 }
 .body-weather .extra-info {
   display: grid;
   width: 100%;
   text-align: center;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(40vh, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
 }
 .body-weather .extra-info div {
   cursor: pointer;
   padding: 2rem 0;
+  background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.338);
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.body-weather .extra-info div i {
+  font-size: 3.6rem;
+  flex-basis: 50%;
 }
 @media screen and (max-width: 723px) {
   .body-weather .time-weather {
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 1220px) {
+  .body-weather .extra-info {
+    grid-template-columns: repeat(auto-fit, minmax(40vh, 1fr));
+  }
+}
+@media screen and (max-width: 500px) {
+  .body-weather .location-setter {
+    flex-direction: column;
+  }
+  .body-weather .location-setter input {
+    padding: 1.5rem 0;
+  }
+  .body-weather .location-setter button {
+    padding: 1.5rem 0;
+  }
+  .body-weather .location-setter .longtitude-field {
+    margin: 1rem 0;
   }
 }
 

@@ -1,12 +1,15 @@
-
+.h1{
+    font-size: 4rem !important;
+}
 
 .py-4{
-    padding: 10rem 0 !important;
+    padding: 8rem 0 !important;
 }
 
 
 project-img{
     cursor: pointer;
+    width: 100%;
 }
 
 results{
@@ -16,4 +19,7 @@ results{
         filter: saturate(3rem);
     }
 }
+
+
+
 
