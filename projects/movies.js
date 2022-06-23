@@ -205,8 +205,8 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
 
     // STARTUP FUNCTIONS
-    // fetchMovies('','title','movies','','','');
-    // fetchGenres()
+    fetchMovies('','title','movies','','','');
+    fetchGenres()
 
 
 

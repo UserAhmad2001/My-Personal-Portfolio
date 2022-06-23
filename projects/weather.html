@@ -1,73 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Project</title>
-    
+
     <!-- my script -->
-    <script src="./weather.js" type="text/javascript"></script>
+    <script src="./weather.js" type="module"></script>
     <!-- font awesome script -->
-    <!-- <script src="https://kit.fontawesome.com/00ad1a85f5.js" crossorigin="anonymous" ></script> -->
-    
+    <script
+      src="https://kit.fontawesome.com/00ad1a85f5.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="../assets/style.css/style.css">
-</head>
-<body class="body-weather">
+    <link rel="stylesheet" href="../assets/style.css/style.css" />
+  </head>
+  <body class="body-weather">
 
-    .
+    <!-- THIS IS MY LOADING AND ERROR ELEMENTS -->
+    <div class="loading-message">
+      <span style="animation-delay: 0s"></span>
+      <span style="animation-delay: 0.3s"></span>
+      <span style="animation-delay: 0.1s"></span>
+      <span style="animation-delay: 0.2s"></span>
+    </div>
 
+    <div class="error">
+      <span>Fetch failed!</span>
+      <button id="retryFetch">RETURN HOME</button>
+    </div>
+
+    <!-- THIS IS THE TIME AND WEATHER SUMMARY PART -->
     <div class="time-weather">
-        <div class="time">
-            <span class="day">Saturday</span>
-            <span class="date">21/1/2021</span>
-            <span class="hour">8:00 PM</span>
-        </div>
-        <div class="weather-summary">
-            <i class="fa-solid fa-sun fa-cloud fa-cloud-sun 
-            fa-wind fa-cloud-showers-heavy fa-snowflake"></i>
-            <span class="weather-summary-value">Lorem ipsum dolor sit.</span>
-            </div>
+      <div class="time night">
+        <span class="day">Saturday</span>
+        <span class="date">21/1/2021</span>
+        <span class="hour">8:00 PM</span>
+      </div>
+      <div class="weather-summary night">
+        <i id="summary-icon" class="fa-solid fa-sun"></i>
+        <span class="weather-summary-value">Clear</span>
+      </div>
     </div>
 
+    <!-- THIS IS THE TIME SLIDER PART -->
     <div class="slider-container">
-        <span>Time: </span>
-        <input type="range" class="weather-slider"
-        name="hour-slider" value="0" min="0" max="168" step="1">
+      <span>Time: </span>
+      <input
+        type="range"
+        class="weather-slider"
+        name="hour-slider"
+        value="0"
+        min="0"
+        max="48"
+        step="1"
+      />
     </div>
 
-
+    <!-- EXTRA INFO LIKE TEMPERATURE HUMIDITY ,ETC -->
     <div class="extra-info">
-        <div class="temp">
-            <i class="fa-solid fa-temperature-half"></i>
-            <span>TEMPERATURE:<br>
-                <h2 id="temp-value">44C</h2>
-            </span>
-            </div>
-            
-        <div class="wind-speed">
-            <i class="fa-solid fa-wind"></i>
-            <span>WIND-SPEED:<br><h2 id="wind-speed-value">55Km/s</h2></span>
-        </div>
+      <div class="temp night">
+        <i class="fa-solid fa-temperature-half"></i>
+        <span
+          >TEMPERATURE:<br />
+          <h2 id="temp-value">44C</h2>
+        </span>
+      </div>
 
-        <div class="humidity">
-            <i class="fa-solid fa-droplet"></i>
-            <span>HUMIDITY:<br><h2 id="humidity-value">20%</h2></span>
-        </div>
-        
-        <div class="pressure">
-            <i class="fa-solid fa-angles-down"></i>
-            <span>PRESSURE:<br><h2 id="pressure-value">40N</h2></span>
-        </div>
-        
+      <div class="wind-speed night">
+        <i class="fa-solid fa-wind"></i>
+        <span
+          >WIND-SPEED:<br />
+          <h2 id="wind-speed-value">55Km/s</h2></span
+        >
+      </div>
+
+      <div class="humidity night">
+        <i class="fa-solid fa-droplet"></i>
+        <span
+          >HUMIDITY:<br />
+          <h2 id="humidity-value">20%</h2></span
+        >
+      </div>
+
+      <div class="pressure night">
+        <i class="fa-solid fa-angles-down"></i>
+        <span
+          >PRESSURE:<br />
+          <h2 id="pressure-value">40N</h2></span
+        >
+      </div>
     </div>
 
-<div class="location-setter">
-    <input type="number" placeholder="latitude" class="latitude-field" value="7785875765" required>
+    <!-- A PART TO MANUALLY SET THE LOCATION  -->
+    <div class="location-setter">
+      <input
+        type="number"
+        placeholder="latitude"
+        class="latitude-field"
+        value="7785875765"
+        required
+      />
 
-    <input type="number" placeholder="longtitude" class="longtitude-field" value="7785875765" required>
-    <button>GET</button>
-</div>
-</body>
+      <input
+        type="number"
+        placeholder="longtitude"
+        class="longtitude-field"
+        value="7785875765"
+        required
+      />
+      <button class="get-btn">GET</button>
+    </div>
+        
+    <!-- A TOAST MESSAGE -->
+    <div class="toast">NIGHT MODE IS ON</div>
+
+
+    <!-- AXIOS SCRIPT -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
 </html>

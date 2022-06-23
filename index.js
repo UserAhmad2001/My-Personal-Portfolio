@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   var message = document.getElementById("message-field");
   var submit = document.getElementById("submit-btn");
 
-  function callAPI(name, company, email, message) {
+  function callEmailAPI(name, company, email, message) {
     const options = {
       method: "POST",
       headers: {
@@ -39,10 +39,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
     (name.value === "" || company.value === ""
     || email.value === "" || message.value === "")
     {
+      name.style.outline = "1px solid red"
+      company.style.outline = "1px solid red"
+      email.style.outline = "1px solid red"
+      message.style.outline = "1px solid red"
       alert('Please fill out all fields!')
     }
     else{
-      callAPI(name.value,company.value,email.value,message.value)
+      callEmailAPI(name.value,company.value,email.value,message.value)
       console.log(name.value,company.value,email.value,message.value);
     }
 

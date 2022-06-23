@@ -1,11 +1,10 @@
-// import axios from "axios";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var slider = document.querySelector(".weather-slider");
   var longtitude;
   var latitude;
+  var night = false
   var time = new Date();
-  var dateInMilliseconds = time.getTime();
   var hourPerMilliseconds = 3600000;
   var day = document.querySelector(".day");
   var date = document.querySelector(".date");
@@ -14,11 +13,17 @@ document.addEventListener("DOMContentLoaded", (e) => {
   var lat_field = document.querySelector(".latitude-field");
   var fetchResults = null ;
   var weather_summary = document.querySelector('.weather-summary-value')
-  var temp = document.querySelector('.temp-value')
-  var wind_speed = document.querySelector('.wind-speed-value')
-  var humidity = document.querySelector('.humidity-value')
-  var pressure = document.querySelector('.pressure-value')
+  var temp = document.getElementById('temp-value')
+  var wind_speed = document.getElementById('wind-speed-value')
+  var humidity = document.getElementById('humidity-value')
+  var pressure = document.getElementById('pressure-value')
+  var summary_icon = document.getElementById('summary-icon')
+  var loading = document.querySelector('.loading-message')
+  var err = document.querySelector('.error')
 
+
+  var weather = ["fa-solid fa-sun", "fa-solid fa-cloud", "fa-solid fa-cloud-sun",
+  "fa-solid fa-wind", "fa-solid fa-cloud-showers-heavy", "fa-solid fa-snowflake", "fa-solid fa-smog"]
   var daysOfTheWeek = [
     "Sunday",
     "Monday",
@@ -45,12 +50,14 @@ document.addEventListener("DOMContentLoaded", (e) => {
     fetchWeather(longtitude,latitude)
   }
   function fetchWeather(long, lat) {
+    loading.style.display = "grid"
+
     const options = {
       method: "GET",
       url: "https://dark-sky.p.rapidapi.com/" + long + "," + lat + "",
       params: {
-        exclude: "minutely",
-        units: "auto",
+        exclude: "minutely,currently,flags,daily",
+        units: "ca",
         extend: "hourly",
         lang: "en",
       },
@@ -63,10 +70,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     axios
       .request(options)
       .then(function (response) {
-        fetchResults = response.data
-        setWeather()
+        console.log(response.data);
+          loading.style.display = "none"
+          fetchResults = response.data
+          setWeather()
       })
       .catch(function (error) {
+        err.style.display = "flex"
         console.error(error);
       });
   }
@@ -74,6 +84,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     time = new Date();
     var timeToSet = time.getTime() + hoursToAdd * hourPerMilliseconds;
     time.setTime(timeToSet);
+
+    setNightMode(time.getHours())
+
     day.innerHTML = daysOfTheWeek[time.getDay()];
     date.innerHTML =
       time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear();
@@ -89,14 +102,90 @@ document.addEventListener("DOMContentLoaded", (e) => {
     hour.innerHTML =
       zero_number1 + time.getHours() + ":" + zero_number2 + time.getMinutes();
   }
+  function setSumIcon(sum){
+    switch(sum){
+      case "Clear":
+        summary_icon.className = weather[0]
+        if(night){summary_icon.className = "fa-solid fa-moon"}
+        break;
+        case "Partly Cloudy":
+          summary_icon.className = weather[2]
+        break;
+        case "Mostly Cloudy":
+        summary_icon.className = weather[1]
+        break;
+      case "Possible Light Rain":
+        summary_icon.className = weather[4]
+        break;
+
+        case "Possible Light Rain and Windy":
+        summary_icon.className = weather[6]
+        break;
+        case "Rain":
+          summary_icon.className = weather[6]
+        break;
+      case "Possible Drizzle":
+        summary_icon.className = weather[6]
+        break;
+      case "Overcast":
+        summary_icon.className = weather[6]
+        break;
+      }
+    }
   function setWeather(){
-    var x = fetchResults.hourly[slider.value]
+    var x = fetchResults.hourly.data[slider.value]
+    console.log(x);
+    setSumIcon(x.summary)
     weather_summary.innerHTML = x.summary
-    temp.innerHTML = x.temperature
-    wind_speed.innerHTML = x.wind_speed
-    humidity.innerHTML = x.humidity
-    pressure.innerHTML = x.pressure
+    temp.innerHTML = x.temperature + " C"
+    wind_speed.innerHTML = x.windSpeed + " Km/h"
+    humidity.innerHTML = x.humidity + " g/m3"
+    pressure.innerHTML = x.pressure + " Pa"
   }
+  function setNightMode(hour){
+    console.log(hour);
+    if(hour ===20 || hour ===21 || 
+      hour ===22 || hour ===23 || 
+      hour ===0 || hour ===1 || 
+      hour ===2 || hour ===3 ||
+      hour ===4 || hour ===5){
+      
+        night = true
+        if(hour === 20){
+          toast("NIGHT MODE ON")
+        }
+        
+
+      document.querySelector('.body-weather').style.background = "#000112"
+      document.querySelectorAll('.night')
+      .forEach((el)=>{
+        el.style.background = "none"
+        el.style.color = "white"
+        el.style.border = "3px solid white"
+      })
+    } 
+    else{
+      night = false
+      document.querySelector('.body-weather')
+      .style.background = "white"
+      document.querySelectorAll('.night')
+      .forEach((el)=>{
+        el.style.background = "white"
+        el.style.color = "black"
+      })
+    }
+  }
+  function toast(message){
+    var t = document.querySelector('.toast');
+    t.innerHTML = message
+    t.style.display = "initial"
+    t.style.opacity = ".8"
+    
+    window.setTimeout(()=>{
+      t.style.opacity = "0"
+    },1000)
+  }
+
 
   // EVENT LISTENERS
   slider.addEventListener("input", (e) => {
@@ -104,10 +193,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
     setTime(value);
     setWeather();
   });
+  document.getElementById('retryFetch').addEventListener('click',(e)=>{
+    err.style.display = "none"
+    fetchWeather(longtitude,latitude)
+  })
+  document.querySelector('.get-btn').addEventListener('click',(e)=>{
+    fetchWeather(long_field.value,lat_field.value)
+  })
 
   // STARTUP FUNCTIONS
   getLocation();
   setTime(0);
+  setNightMode(time.getHours());
 
 
   
