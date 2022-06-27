@@ -180,6 +180,19 @@
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
 
+    .fa-temperature-half{
+      color: orangered;
+    }
+    .fa-wind{
+      color: lightgreen;
+    }
+    .fa-droplet{
+      color: lightblue;
+    }
+    .fa-angles-down{
+      color: burlywood;
+    }
+
     div {
       padding: 2rem 0;
       background-color: white;

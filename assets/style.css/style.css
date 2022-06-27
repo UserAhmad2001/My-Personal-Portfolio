@@ -10583,6 +10583,18 @@ results:hover {
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
 }
+.body-weather .extra-info .fa-temperature-half {
+  color: orangered;
+}
+.body-weather .extra-info .fa-wind {
+  color: lightgreen;
+}
+.body-weather .extra-info .fa-droplet {
+  color: lightblue;
+}
+.body-weather .extra-info .fa-angles-down {
+  color: burlywood;
+}
 .body-weather .extra-info div {
   padding: 2rem 0;
   background-color: white;
