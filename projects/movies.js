@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             }
         const fetchGenres = ()=>{
             var genres_container = document.querySelector('.genres')
-            const options = {
+                const options = {
                 method: 'GET',
                 url: 'https://movies-app1.p.rapidapi.com/api/genres',
                 headers: {
@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded',(e)=>{
                     console.log(error);
                 });
             }
-
         var parseFetchResults = (results)=>{
 
             results.forEach((result)=>{
@@ -146,38 +145,45 @@ document.addEventListener('DOMContentLoaded',(e)=>{
 
     document.addEventListener('scroll',scrollEventListener)
 
-    document.querySelector('.nav-home')
-    .addEventListener('click',(e)=>{
-        if(! nav_home){
-            for(var i=0; i<movies_container.children.length; i++){
-                movies_container.innerHTML = ""
+    document.querySelectorAll('.nav-home').forEach(function(el){
+        el.addEventListener('click',(e)=>{
+            if(! nav_home){
+                for(var i=0; i<movies_container.children.length; i++){
+                    movies_container.innerHTML = ""
+                }
             }
-        }
-        fetchMovies('','title','movies','','','');
-        nav_home=true; nav_popular,nav_trending=false;
-        year = new Date().getFullYear()
+            fetchMovies('','title','movies','','','');
+            nav_home=true; nav_popular,nav_trending=false;
+            year = new Date().getFullYear()
+        })
+
     })
-    document.querySelector('.nav-trending')
-    .addEventListener('click',(e)=>{
-        if(! nav_trending){
-            for(var i=0; i<movies_container.children.length; i++){
-                movies_container.innerHTML = ""
+    document.querySelectorAll('.nav-trending').forEach(function(el){
+        el.addEventListener('click',(e)=>{
+            if(! nav_trending){
+                for(var i=0; i<movies_container.children.length; i++){
+                    movies_container.innerHTML = ""
+                }
             }
-        }
-        fetchMovies('','rating','','',year,'');
-        nav_trending=true; nav_popular,nav_home=false;
+            fetchMovies('','rating','','',year,'');
+            nav_trending=true; nav_popular,nav_home=false;
+        })
+        
     })
-    document.querySelector('.nav-popular')
-    .addEventListener('click',(e)=>{
-        if(! nav_popular){
-            for(var i=0; i<movies_container.children.length; i++){
-                movies_container.innerHTML = ""
+    document.querySelectorAll('.nav-popular').forEach(function(el){
+        el.addEventListener('click',(e)=>{
+            if(! nav_popular){
+                for(var i=0; i<movies_container.children.length; i++){
+                    movies_container.innerHTML = ""
+                }
             }
-        }
-        fetchMovies('','rating','','','','');
-        nav_popular=true; nav_home,nav_trending=false;
-        year = new Date().getFullYear()
+            fetchMovies('','rating','','','','');
+            nav_popular=true; nav_home,nav_trending=false;
+            year = new Date().getFullYear()
+        })
+        
     })
+
     document.querySelector('.search')
     .addEventListener('keypress',(e)=>{
         document.addEventListener('scroll',(e)=>{})
@@ -189,10 +195,12 @@ document.addEventListener('DOMContentLoaded',(e)=>{
             year = new Date().getFullYear()
         }
     })
-    document.querySelector('.error-message')
+    document.querySelector('.err-btn')
     .addEventListener('click',(e)=>{
+        document.querySelector('.error-message').style.display = "none"
         fetchMovies('','title','','','','');
     })
+    
 
 
 
