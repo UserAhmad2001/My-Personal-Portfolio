@@ -10427,20 +10427,25 @@ results:hover {
 .body-weather ::after {
   box-sizing: border-box;
 }
+.body-weather .night-mode {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  font-size: 1.5rem;
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+}
 .body-weather .loading-message {
   position: fixed;
-  display: block;
-  grid-template-columns: repeat(2, 1fr);
-  transform: rotateZ(45deg) translate(-100%, 120%);
+  display: none;
+  left: 50%;
+  top: 50%;
+  padding: 1rem 2rem;
+  background: transparent;
+  backdrop-filter: blur(1rem);
+  color: lightgreen;
+  transform: translate(-50%, -50%);
   z-index: 101;
-}
-.body-weather .loading-message span {
-  background-color: aqua;
-  width: 1rem;
-  height: 1rem;
-  display: block;
-  opacity: 0;
-  animation: loading-anim 1s infinite alternate;
 }
 .body-weather .error {
   display: none;
@@ -10627,15 +10632,6 @@ results:hover {
   }
   .body-weather .location-setter .longtitude-field {
     margin: 1rem 0;
-  }
-}
-
-@keyframes loading-anim {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 

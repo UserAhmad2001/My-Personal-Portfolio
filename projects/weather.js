@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   var slider = document.querySelector(".weather-slider");
   var longtitude;
   var latitude;
-  var night = false
   var time = new Date();
   var hourPerMilliseconds = 3600000;
   var day = document.querySelector(".day");
@@ -85,8 +84,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     var timeToSet = time.getTime() + hoursToAdd * hourPerMilliseconds;
     time.setTime(timeToSet);
 
-    setNightMode(time.getHours())
-
     day.innerHTML = daysOfTheWeek[time.getDay()];
     date.innerHTML =
       time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear();
@@ -142,30 +139,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
     humidity.innerHTML = x.humidity + " g/m3"
     pressure.innerHTML = x.pressure + " Pa"
   }
-  function setNightMode(hour){
-    console.log(hour);
-    if(hour ===20 || hour ===21 || 
-      hour ===22 || hour ===23 || 
-      hour ===0 || hour ===1 || 
-      hour ===2 || hour ===3 ||
-      hour ===4 || hour ===5){
-      
-        night = true
-        if(hour === 20){
-          toast("NIGHT MODE ON")
-        }
-        
-
-      document.querySelector('.body-weather').style.background = "#000112"
-      document.querySelectorAll('.night')
-      .forEach((el)=>{
-        el.style.background = "none"
-        el.style.color = "white"
-        el.style.border = "3px solid white"
-      })
-    } 
-    else{
-      night = false
+  function setNightMode(){
+    if(document.querySelector('.body-weather').style.background != "white"){
       document.querySelector('.body-weather')
       .style.background = "white"
       document.querySelectorAll('.night')
@@ -174,6 +149,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
         el.style.color = "black"
       })
     }
+    else{
+      document.querySelector('.body-weather').style.background = "#000112"
+      document.querySelectorAll('.night')
+      .forEach((el)=>{
+        el.style.background = "none"
+        el.style.color = "white"
+        el.style.border = "3px solid white"
+      })
+    }
+
+     
+
   }
   function toast(message){
     var t = document.querySelector('.toast');
@@ -200,11 +187,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
   document.querySelector('.get-btn').addEventListener('click',(e)=>{
     fetchWeather(long_field.value,lat_field.value)
   })
+  document.querySelector('.night-mode').addEventListener('click',(e)=>{
+    setNightMode()
+  })
 
   // STARTUP FUNCTIONS
   getLocation();
   setTime(0);
-  setNightMode(time.getHours());
 
 
   
