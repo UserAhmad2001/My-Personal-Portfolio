@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My-Portfolio</title>
 
+    <!-- MY SASS STYLESHEET -->
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/scss/bootstrap.scss">  -->
+    <link rel="stylesheet" href="assets/style.css/style.css" />
+  </head>
 
-          <!-- MY SASS STYLESHEET -->
-          <!-- <link rel="stylesheet" href="node_modules/bootstrap/scss/bootstrap.scss">  -->
-          <link rel="stylesheet" href="assets/style.css/style.css"> 
-
-</head>
-
-<body>
-    
-
-
-      <!-- THIS IS HOME SECTION -->
-      <div class="container-fluid ">
-        <div class="row align-items-start pt-5 ">
-          <div class="col-lg-4 col-md-6 d-none d-md-block">
-            <svg 
-            viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="grad">
-                <stop offset="0" stop-color="lightblue"></stop>
-                <stop offset="1" stop-color="blue"></stop>
-              </linearGradient>
-            </defs>
-              <path fill="url(#grad)" 
-              transform="translate(120 80) ">
-
+  <body>
+    <!-- THIS IS HOME SECTION -->
+    <div class="container-fluid">
+      <div class="row align-items-start pt-5">
+        <div class="col-lg-4 col-md-6 d-none d-md-block">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0088ff" transform="translate(120 80) ">
               <filter id="gooey">
                 <feGaussianBlur in="SourceGraphic" stDeviation="10" />
-                <feColorMatrix values="
+                <feColorMatrix
+                  values="
                 1 0 0 0 0
                 0 1 0 0 0
                 0 0 1 0 0
                 0 0 0 20 -10
-                " />
-            </filter>
+                "
+                />
+              </filter>
 
               <animate
-              attributeName="d" dur="5s" repeatCount="indefinite"
-              values="
+                attributeName="d"
+                dur="5s"
+                repeatCount="indefinite"
+                values="
               M48,-45.7C63.7,-32.2,79,-16.1,77.9,-1.1C76.7,13.8,59.1,27.6,43.4,44C27.6,
               60.4,13.8,79.3,-2.5,81.9C-18.9,84.4,-37.8,70.6,-51.2,54.2C-64.5,37.8,-72.3,18.9,
               -71.1,1.1C-70,-16.6,-59.9,-33.2,-46.6,-46.7C-33.2,-60.1,-16.6,-70.4,-0.2,-70.2C16.1,-69.9,32.2,-59.1,48,-45.7Z;
@@ -70,152 +60,248 @@
               -71.1,1.1C-70,-16.6,-59.9,-33.2,-46.6,-46.7C-33.2,-60.1,-16.6,-70.4,-0.2,-70.2C16.1,-69.9,32.2,-59.1,48,-45.7Z;
               "
               ></animate>
-              </path>
-            </svg>
-          </div>
+            </path>
+          </svg>
+        </div>
 
-          <div class="col-lg-8 col-md-6 p-5 container">
-            <div class="row"><div class="col">HELLO, I'M</div></div>
-            <div class="row"><div class="col h1 text-primary">AHMAD MANA</div></div> 
-            <div class="row">
-              <div class="col">
-                I'm a creative web designer & front-end developer 
-                who focuses on crafting clean & user-friendly experiences. I am passionate about building excellent websites that could impress users 
-                and improve your company's revenue.
-              </div>
+        <div class="col-lg-8 col-md-6 p-5 container">
+          <div class="row"><div class="col">HELLO, I'M</div></div>
+          <div class="row">
+            <div class="col h1 text-primary">AHMAD MANA</div>
+          </div>
+          <div class="row">
+            <div class="col">
+              I'm a creative web designer & front-end developer who focuses on
+              crafting clean & user-friendly experiences. I am passionate about
+              building excellent websites that could impress users and improve
+              your company's revenue.
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-
-
-      <!-- THIS IS MAIN SECTION -->
-      <div class="container-fluid" style="margin-top:12rem ;">
-        <div class="row align-items-center py-4">
-          <div class="col h1 main-txt text-center">About <span class="text-primary">Me</span></div>
-
-          <div class="w-100 d-md-none"></div>
-
-          <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt ">I am a self-taught web developer that is looking for opportunities to grow my skillset in a professional
-            environment. I come from a graphic design background, however i fell in love with web design and the direct impact it has
-            on its users.
-          </div>
+    <!-- THIS IS MAIN SECTION -->
+    <div class="container-fluid" style="margin-top: 12rem">
+      <div class="row align-items-center py-4">
+        <div class="col h1 main-txt text-center">
+          About <span class="text-primary">Me</span>
         </div>
 
-        <div class="row align-items-center d-flex flex-md-row py-4 flex-sm-column-reverse">
-            <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt ">My strengthes are in HTML, CSS, javascript (including ES6), SASS & Bootstrap.
-              I am currently in the process of learning React for creating complex single page applications.
-            </div>
+        <div class="w-100 d-md-none"></div>
 
-
-            <div class="col h1 main-txt text-center">My <span class="text-primary">Skillset</span></div>
-        </div>
-
-        <div class="row align-items-center py-4">
-            <div class="col h1 main-txt text-center">Experience & <br> <span class="text-primary">Educaation</span></div>
-
-            <div class="w-100 d-md-none"></div>
-
-            <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt ">I recieved a diplom in the oil training institute,
-              I have also worked in customer service at a few places before pursueing my ambition as a web designer.
-            </div>
+        <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt">
+          I am a self-taught web developer that is looking for opportunities to
+          grow my skillset in a professional environment. I come from a graphic
+          design background, however i fell in love with web design and the
+          direct impact it has on its users.
         </div>
       </div>
 
+      <div
+        class="row align-items-center d-flex flex-md-row py-4 flex-sm-column-reverse"
+      >
+        <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt">
+          My strengthes are in HTML, CSS, javascript (including ES6), SASS &
+          Bootstrap. I am currently in the process of learning React for
+          creating complex single page applications.
+        </div>
 
-      <!-- THIS IS MY PROJECTS SECTION -->
-      <div class="container-fluid py-4">
-        <div class="h1 d-block text-center my-5">My <span class="text-primary"> Projects</span></div>
-        <div class="row gy-2">
-
-          <div class="col-lg-3 col-md-6 py-2">
-            <img class="img-fluid d-block mx-auto" src="./images/finance_calculator.png" alt="project image">
-            <p class="mx-auto text-center w-75">Finance Calculator App</p>
-               <div role="button" class="btn-primary text-center rounded p-2 w-50 mx-auto">
-                <a class="text-white text-decoration-none"  href="./projects/finance_calculator.html">View Project</a></div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6 py-2">
-            <img class="img-fluid d-block mx-auto" src="./images/client-1.jpg" alt="project image">
-            <p class="mx-auto text-center w-75">Movie Trailer App</p>
-               <div role="button" class="btn-primary text-center rounded p-2 w-50 mx-auto">
-                <a class="text-white text-decoration-none"  href="./projects/movies.html">View Project</a></div>
-          </div>
-          
-          <div class="w-100 d-md-none"></div>
-
-          <div class="col-lg-3 col-md-6 py-2">
-            <img class="img-fluid d-block mx-auto" src="./images/weather app.png" alt="project image">
-            <p class="mx-auto text-center w-75">Weather Cast App</p>
-               <div role="button" class="btn-primary text-center rounded p-2 w-50 mx-auto">
-                <a class="text-white text-decoration-none"  href="./projects/weather.html">View Project</a></div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6 py-2">
-            <img class="img-fluid d-block mx-auto" src="./images/client-1.jpg" alt="project image">
-            <p class="mx-auto text-center w-75">Simple Ecommerce Website</p>
-               <div role="button" class="btn-primary text-center rounded p-2 w-50 mx-auto">
-                <a class="text-white text-decoration-none"  href="./projects/ecommerce.html">View Project</a></div>
-          </div>
-
-
-
-
+        <div class="col h1 main-txt text-center">
+          My <span class="text-primary">Skillset</span>
         </div>
       </div>
 
+      <div class="row align-items-center py-4">
+        <div class="col h1 main-txt text-center">
+          Experience & <br />
+          <span class="text-primary">Educaation</span>
+        </div>
 
+        <div class="w-100 d-md-none"></div>
 
-      <!-- THIS IS THE CONTACT ME SECTION -->
-      <div class="container-fluid py-4 form">
-      <div class="d-block text-center h1" >Contact <span class="text-primary">Me</span></div>
+        <div class="col p-5 text-center h5 fw-normal text-muted scnd-txt">
+          I recieved a diplom in the oil training institute, I have also worked
+          in customer service at a few places before pursueing my ambition as a
+          web designer.
+        </div>
+      </div>
+    </div>
+
+    <!-- THIS IS MY PROJECTS SECTION -->
+    <div class="container-fluid py-4">
+      <div class="h1 d-block text-center my-5">
+        My <span class="text-primary"> Projects</span>
+      </div>
+      <div class="row gy-2">
+        <div class="col-lg-3 col-md-6 py-2">
+          <img
+            class="img-fluid d-block mx-auto"
+            src="./images/finance_calculator.png"
+            alt="project image"
+          />
+          <p class="mx-auto text-center w-75">
+            A simple finance calculator web app that makes use of pure
+            javascript code to perform mathematical operations, the app is
+            designed using Bootstrap and is completely responsive and
+            interactive.
+          </p>
+          <div
+            role="button"
+            class="btn-primary text-center rounded p-2 w-50 mx-auto"
+          >
+            <a
+              class="text-white text-decoration-none"
+              href="./projects/finance_calculator.html"
+              >View Project</a
+            >
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 py-2">
+          <img
+            class="img-fluid d-block mx-auto"
+            src="./images/client-1.jpg"
+            alt="project image"
+          />
+          <p class="mx-auto text-center w-75">
+            A dynamic movie trailer app that fetches REST API data using axios
+            library, the app is styled using SASS and is fully responsive and
+            interactive.
+          </p>
+          <div
+            role="button"
+            class="btn-primary text-center rounded p-2 w-50 mx-auto"
+          >
+            <a
+              class="text-white text-decoration-none"
+              href="./projects/movies.html"
+              >View Project</a
+            >
+          </div>
+        </div>
+
+        <div class="w-100 d-md-none"></div>
+
+        <div class="col-lg-3 col-md-6 py-2">
+          <img
+            class="img-fluid d-block mx-auto"
+            src="./images/weather app.png"
+            alt="project image"
+          />
+          <p class="mx-auto text-center w-75">
+            A dynamic weather forecast app that uses data from a REST API to
+            dispaly temperature according to the time of the day, the app is
+            fully responsive and the user can easily interact with the data.
+          </p>
+          <div
+            role="button"
+            class="btn-primary text-center rounded p-2 w-50 mx-auto"
+          >
+            <a
+              class="text-white text-decoration-none"
+              href="./projects/weather.html"
+              >View Project</a
+            >
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 py-2">
+          <img
+            class="img-fluid d-block mx-auto"
+            src="./images/client-1.jpg"
+            alt="project image"
+          />
+          <p class="mx-auto text-center w-75">
+            A Single page dynamic fake shop to display custom products, the app
+            is styled using SASS the logic is whritten in typescript and is
+            later compiled into javascript the site is fully responsive and
+            interactive and can take user input to offer the best content to the
+            user.
+          </p>
+          <div
+            role="button"
+            class="btn-primary text-center rounded p-2 w-50 mx-auto bg-secondary"
+          >
+            <a
+              class="text-white text-decoration-none"
+              href="./projects/ecommerce.html"
+              >COMING SOON</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THIS IS THE CONTACT ME SECTION -->
+    <div class="container-fluid py-4 form">
+      <div class="d-block text-center h1">
+        Contact <span class="text-primary">Me</span>
+      </div>
 
       <form class="container-fluid mt-5">
         <div class="row">
           <div class="col-md-6 col-lg">
-            <input required="required" id="name-field" type="name" class="form-control "
-            name="name"   placeholder="Name">
+            <input
+              required="required"
+              id="name-field"
+              type="name"
+              class="form-control"
+              name="name"
+              placeholder="Name"
+            />
           </div>
 
           <div class="w-100 d-md-none py-2"></div>
 
           <div id="company-field" class="col-md-6 col-lg">
-            <input required="required" type="text" name="company"
-             class="form-control " placeholder="Company">
+            <input
+              required="required"
+              type="text"
+              name="company"
+              class="form-control"
+              placeholder="Company"
+            />
+          </div>
         </div>
-</div>
 
         <div class="row mt-4">
           <div class="col">
-              <input required="required" id="email-field" type="email" name="email"
-              class="form-control rounded" placeholder="Email">
-         </div>
+            <input
+              required="required"
+              id="email-field"
+              type="email"
+              name="email"
+              class="form-control rounded"
+              placeholder="Email"
+            />
+          </div>
         </div>
 
-        <div class="row ">
+        <div class="row">
           <div class="col">
-            <textarea required="required" id="message-field" class="form-control  d-block mt-4 mx-aoto" name="txtarea" rows="10"
-            placeholder="Your Message...."
+            <textarea
+              required="required"
+              id="message-field"
+              class="form-control d-block mt-4 mx-aoto"
+              name="txtarea"
+              rows="10"
+              placeholder="Your Message...."
             ></textarea>
           </div>
         </div>
 
-
         <div class="row mt-4">
           <div class="col m-auto text-center">
-            <div role="button" id="submit-btn" class="btn-primary form-control">SUBMIT</div>
+            <div role="button" id="submit-btn" class="btn-primary form-control">
+              SUBMIT
+            </div>
           </div>
         </div>
-
-
       </form>
-
     </div>
 
-
-      <!-- BOOTSTRAP SCRIPT -->
+    <!-- BOOTSTRAP SCRIPT -->
     <script type="text/javascript" src="index.js"></script>
-
-</body>
+  </body>
 </html>
