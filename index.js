@@ -2,12 +2,12 @@
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var name = document.getElementById("name-field");
-  var company = document.getElementById("company-field");
+  var subject = document.getElementById("subject-field");
   var email = document.getElementById("email-field");
   var message = document.getElementById("message-field");
   var submit = document.getElementById("submit-btn");
 
-  function callEmailAPI(name, company, email, message) {
+  function callEmailAPI(name, subject, email, message) {
     const options = {
       method: "POST",
       headers: {
@@ -17,12 +17,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
         "X-RapidAPI-Host": "rapidprod-sendgrid-v1.p.rapidapi.com",
       },
       body:
-        '{"personalizations":[{"to":[{"email":"Kingahmed19991@gmail.com"}],"subject":"Job Inquiry"}],"from":{"email":"' +
+        '{"personalizations":[{"to":[{"email":"Kingahmed19991@gmail.com"}],"subject":"'+ subject +'"}],"from":{"email":"' +
         email +
         '"},"content":[{"type":"text/plain","value":"' +
         name +
-        " " +
-        company +
         " " +
         message +
         '"}]}',
@@ -36,18 +34,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   submit.addEventListener("click", (e) => {
     if
-    (name.value === "" || company.value === ""
+    (name.value === "" || subject.value === ""
     || email.value === "" || message.value === "")
     {
       name.style.outline = "1px solid red"
-      company.style.outline = "1px solid red"
+      subject.style.outline = "1px solid red"
       email.style.outline = "1px solid red"
       message.style.outline = "1px solid red"
       alert('Please fill out all fields!')
     }
     else{
-      callEmailAPI(name.value,company.value,email.value,message.value)
-      console.log(name.value,company.value,email.value,message.value);
+      callEmailAPI(name.value,subject.value,email.value,message.value)
+      name.value = ''
+      subject.value = ''
+      email.value = ''
+      message.innerHTML = ''
+      alert('Message Sent!')
     }
 
   });
