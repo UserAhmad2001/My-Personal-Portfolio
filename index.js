@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   var message = document.getElementById("message-field");
   var submit = document.getElementById("submit-btn");
 
+
+
+
   function callEmailAPI(name, subject, email, message) {
     const options = {
       method: "POST",
